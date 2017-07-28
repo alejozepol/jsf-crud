@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{mensajesCrud.CreatePermisoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{mensajesCrud.CreatePermisoLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{permisoController.selected.id}" title="#{mensajesCrud.CreatePermisoTitle_id}" required="true" requiredMessage="#{mensajesCrud.CreatePermisoRequiredMessage_id}"/>
+                    <h:outputLabel value="#{mensajesCrud.CreatePermisoLabel_nombre}" for="nombre" />
+                    <h:inputText id="nombre" value="#{permisoController.selected.nombre}" title="#{mensajesCrud.CreatePermisoTitle_nombre}" required="true" requiredMessage="#{mensajesCrud.CreatePermisoRequiredMessage_nombre}"/>
+                    <h:outputLabel value="#{mensajesCrud.CreatePermisoLabel_url}" for="url" />
+                    <h:inputText id="url" value="#{permisoController.selected.url}" title="#{mensajesCrud.CreatePermisoTitle_url}" required="true" requiredMessage="#{mensajesCrud.CreatePermisoRequiredMessage_url}"/>
+                    <h:outputLabel value="#{mensajesCrud.CreatePermisoLabel_permisosId}" for="permisosId" />
+                    <h:selectOneMenu id="permisosId" value="#{permisoController.selected.permisosId}" title="#{mensajesCrud.CreatePermisoTitle_permisosId}" >
+                        <f:selectItems value="#{permisoController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{permisoController.create}" value="#{mensajesCrud.CreatePermisoSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{permisoController.prepareList}" value="#{mensajesCrud.CreatePermisoShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{mensajesCrud.CreatePermisoIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

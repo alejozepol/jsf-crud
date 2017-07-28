@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{mensajesCrud.ViewUsuarioTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{mensajesCrud.ViewUsuarioLabel_id}"/>
+                    <h:outputText value="#{usuarioController.selected.id}" title="#{mensajesCrud.ViewUsuarioTitle_id}"/>
+                    <h:outputText value="#{mensajesCrud.ViewUsuarioLabel_documento}"/>
+                    <h:outputText value="#{usuarioController.selected.documento}" title="#{mensajesCrud.ViewUsuarioTitle_documento}"/>
+                    <h:outputText value="#{mensajesCrud.ViewUsuarioLabel_primerNombre}"/>
+                    <h:outputText value="#{usuarioController.selected.primerNombre}" title="#{mensajesCrud.ViewUsuarioTitle_primerNombre}"/>
+                    <h:outputText value="#{mensajesCrud.ViewUsuarioLabel_segundoNombre}"/>
+                    <h:outputText value="#{usuarioController.selected.segundoNombre}" title="#{mensajesCrud.ViewUsuarioTitle_segundoNombre}"/>
+                    <h:outputText value="#{mensajesCrud.ViewUsuarioLabel_primerApellido}"/>
+                    <h:outputText value="#{usuarioController.selected.primerApellido}" title="#{mensajesCrud.ViewUsuarioTitle_primerApellido}"/>
+                    <h:outputText value="#{mensajesCrud.ViewUsuarioLabel_segundoApellido}"/>
+                    <h:outputText value="#{usuarioController.selected.segundoApellido}" title="#{mensajesCrud.ViewUsuarioTitle_segundoApellido}"/>
+                    <h:outputText value="#{mensajesCrud.ViewUsuarioLabel_clave}"/>
+                    <h:outputText value="#{usuarioController.selected.clave}" title="#{mensajesCrud.ViewUsuarioTitle_clave}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{usuarioController.destroyAndView}" value="#{mensajesCrud.ViewUsuarioDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{mensajesCrud.ViewUsuarioEditLink}"/>
+                <br />
+                <h:commandLink action="#{usuarioController.prepareCreate}" value="#{mensajesCrud.ViewUsuarioCreateLink}" />
+                <br />
+                <h:commandLink action="#{usuarioController.prepareList}" value="#{mensajesCrud.ViewUsuarioShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{mensajesCrud.ViewUsuarioIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
